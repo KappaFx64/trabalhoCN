@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://imagenscontainers.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_12582d7ad3b7409b8dd110805165ecba }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_27a2c2569972400580f650c3c85ff0cb }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_fe27e675b48c4b55a369ec85a7b75c03 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_b066cd9ad62c4a2683d44046d9f1a9db }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: imagenscontainers.azurecr.io/demo:${{ github.sha }}
+        tags: imagenscontainers.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_fe27e675b48c4b55a369ec85a7b75c03 }}/demo:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'trabalhocn'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_b6b7312bbe0846d69c3e0507a3dfcf58 }}
-        images: 'imagenscontainers.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_12582d7ad3b7409b8dd110805165ecba }}/demo:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_1f9c61f9121c480f92b27a9808f16953 }}
+        images: 'imagenscontainers.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_fe27e675b48c4b55a369ec85a7b75c03 }}/demo:${{ github.sha }}'
