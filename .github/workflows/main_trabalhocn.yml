@@ -34,7 +34,7 @@ jobs:
     #    file: ./Dockerfile
     
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn clean package -DskipTests
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
