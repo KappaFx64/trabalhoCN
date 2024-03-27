@@ -46,7 +46,8 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: imagenscontainers.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_1e3b703851744b1ba54457401e7d3f27 }}/demo:${{ github.sha }}
+        #tags: imagenscontainers.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_1e3b703851744b1ba54457401e7d3f27 }}/demo:latest
+        tags: imagenscontainers.azurecr.io/demo:latest
         file: ./Dockerfile
 
     #- name: Dockerize
@@ -69,4 +70,4 @@ jobs:
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_7a8607a7a22243d5a56dbcf474cb4d65 }}
         #images: 'imagenscontainers.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_1e3b703851744b1ba54457401e7d3f27 }}/demo:${{ github.sha }}'
-        images: 'demo:latest'
+        images: 'imagenscontainers.azurecr.io/demo:latest'
