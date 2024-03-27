@@ -26,12 +26,26 @@ jobs:
         username: ${{ secrets.AzureAppService_ContainerUsername_1e3b703851744b1ba54457401e7d3f27 }}
         password: ${{ secrets.AzureAppService_ContainerPassword_7f55160ce927416a84e9fd789d0f0d27 }}
 
+    #- name: Build and push container image to registry
+    #  uses: docker/build-push-action@v3
+    #  with:
+    #    push: true
+    #    tags: imagenscontainers.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_1e3b703851744b1ba54457401e7d3f27 }}/demo:${{ github.sha }}
+    #    file: ./Dockerfile
+    
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
         tags: imagenscontainers.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_1e3b703851744b1ba54457401e7d3f27 }}/demo:${{ github.sha }}
         file: ./Dockerfile
+
+    #- name: Dockerize
+    #  run: | 
+    #    docker build -t imagenscontainers.azucr.io/demo:${{ github.sha }} .
 
   deploy:
     runs-on: ubuntu-latest
@@ -48,4 +62,5 @@ jobs:
         app-name: 'trabalhocn'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_7a8607a7a22243d5a56dbcf474cb4d65 }}
-        images: 'imagenscontainers.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_1e3b703851744b1ba54457401e7d3f27 }}/demo:${{ github.sha }}'
+        #images: 'imagenscontainers.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_1e3b703851744b1ba54457401e7d3f27 }}/demo:${{ github.sha }}'
+        images: 'demo:latest'
