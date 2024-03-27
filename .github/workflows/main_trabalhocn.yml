@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: imagenscontainers.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_12582d7ad3b7409b8dd110805165ecba }}/demo:${{ github.sha }}
+        tags: imagenscontainers.azurecr.io/demo:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
