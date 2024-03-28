@@ -18,9 +18,8 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Set up Azure CLI
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+      run: |
+        az login --username leonardo.alves@ipcbcampus.pt --password Aa30204474
 
     - name: Enable Git LFS
       run: git lfs pull
