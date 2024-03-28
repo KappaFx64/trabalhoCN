@@ -69,6 +69,11 @@ jobs:
         docker push imagenscontainers.azurecr.io/demo:latest
         ls -l target
 
+    - name: Restart Azure Web App
+      run: |
+        az login --username leonardo.alves@ipcbcampus.pt --password ${{ secrets.AZURE_CREDENTIALS }}
+        az webapp restart --name trabalhocn --resource-group trabalhoCN
+
     #- name: Dockerize
     #  run: | 
     #    docker build -t imagenscontainers.azucr.io/demo:${{ github.sha }} .
@@ -97,9 +102,3 @@ jobs:
       #  AZURE_WEBAPP_NAME: 'trabalhocn'
       #  AZURE_RESOURCE_GROUP: 'trabalhoCN'
       #if: always()
-
-    - name: Restart Azure Web App
-      run: |
-        az login --username leonardo.alves@ipcbcampus.pt --password ${{ secrets.AZURE_CREDENTIALS }}
-        az webapp restart --name trabalhocn --resource-group trabalhoCN
-
