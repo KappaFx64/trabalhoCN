@@ -102,3 +102,6 @@ jobs:
       #  AZURE_RESOURCE_GROUP: 'trabalhoCN'
       #if: always()
 
+    - name: Restart Azure Web App
+      run: az webapp restart --name trabalhocn --resource-group trabalhoCN
+
