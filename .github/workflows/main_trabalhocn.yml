@@ -47,7 +47,7 @@ jobs:
       run: mvn clean package -DskipTests
 
     - name: List contents of target directory
-      run: ls -l ./trabalhocn/target
+      run: ls -l ../../target
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
