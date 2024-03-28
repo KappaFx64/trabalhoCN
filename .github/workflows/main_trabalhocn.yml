@@ -17,10 +17,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Set up Azure CLI
-      run: |
-        az login --username leonardo.alves@ipcbcampus.pt --password ${{ secrets.AZURE_CREDENTIALS }}
-
     - name: Enable Git LFS
       run: git lfs pull
 
@@ -103,5 +99,7 @@ jobs:
       #if: always()
 
     - name: Restart Azure Web App
-      run: az webapp restart --name trabalhocn --resource-group trabalhoCN
+      run: |
+        az login --username leonardo.alves@ipcbcampus.pt --password ${{ secrets.AZURE_CREDENTIALS }}
+        az webapp restart --name trabalhocn --resource-group trabalhoCN
 
