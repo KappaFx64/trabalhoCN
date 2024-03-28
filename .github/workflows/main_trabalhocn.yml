@@ -19,7 +19,7 @@ jobs:
 
     - name: Set up Azure CLI
       run: |
-        az login --username leonardo.alves@ipcbcampus.pt --password Aa30204474
+        az login --username leonardo.alves@ipcbcampus.pt --password ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Enable Git LFS
       run: git lfs pull
