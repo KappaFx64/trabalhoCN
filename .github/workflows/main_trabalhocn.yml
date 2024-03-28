@@ -90,3 +90,11 @@ jobs:
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_7a8607a7a22243d5a56dbcf474cb4d65 }}
         #images: 'imagenscontainers.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_1e3b703851744b1ba54457401e7d3f27 }}/demo:${{ github.sha }}'
         images: 'imagenscontainers.azurecr.io/demo:latest'
+
+    - name: Restart Azure App Service
+      uses: azure/webapps-restart@v2
+      with:
+        app-name: 'trabalhocn'
+        slot-name: 'production'  # Se você estiver usando um slot específico, caso contrário, remova esta linha
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_7a8607a7a22243d5a56dbcf474cb4d65 }}  # Se necessário, substitua pelo seu próprio segredo
+
