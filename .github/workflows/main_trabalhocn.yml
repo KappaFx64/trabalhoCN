@@ -52,6 +52,9 @@ jobs:
     - name: List contents of target directory 2
       run: ls -l .
 
+    - name: List contents of target directory Target
+      run: ls -l target
+
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
@@ -59,8 +62,6 @@ jobs:
         #tags: imagenscontainers.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_1e3b703851744b1ba54457401e7d3f27 }}/demo:latest
         tags: imagenscontainers.azurecr.io/demo:latest
         file: ./Dockerfile
-      env:
-        BUILDKIT_INLINE_CACHE: 0
 
     #- name: Dockerize
     #  run: | 
