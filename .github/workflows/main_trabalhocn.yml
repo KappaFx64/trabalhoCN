@@ -46,14 +46,14 @@ jobs:
     - name: Build with Maven
       run: mvn clean package -DskipTests
 
-    - name: List contents of target directory
-      run: ls -l ..
+    #- name: List contents of target directory
+    #  run: ls -l ..
 
-    - name: List contents of target directory 2
-      run: ls -l .
+    #- name: List contents of target directory 2
+    #  run: ls -l .
 
-    - name: List contents of target directory Target
-      run: ls -l target
+    #- name: List contents of target directory Target
+    #  run: ls -l target
 
     #- name: Build and push container image to registry
     #  uses: docker/build-push-action@v3
@@ -67,7 +67,7 @@ jobs:
       run: |
         docker build --no-cache -t imagenscontainers.azurecr.io/demo:latest .
         docker push imagenscontainers.azurecr.io/demo:latest
-        ls -l
+        ls -l target
 
     #- name: Dockerize
     #  run: | 
