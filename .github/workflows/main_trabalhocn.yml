@@ -62,6 +62,7 @@ jobs:
         #tags: imagenscontainers.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_1e3b703851744b1ba54457401e7d3f27 }}/demo:latest
         tags: imagenscontainers.azurecr.io/demo:latest
         file: ./Dockerfile
+        extra-build-args: '--no-cache && ls -l'
 
     #- name: Dockerize
     #  run: | 
