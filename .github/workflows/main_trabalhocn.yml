@@ -17,6 +17,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Set up Azure CLI
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
     - name: Enable Git LFS
       run: git lfs pull
 
@@ -91,10 +96,10 @@ jobs:
         #images: 'imagenscontainers.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_1e3b703851744b1ba54457401e7d3f27 }}/demo:${{ github.sha }}'
         images: 'imagenscontainers.azurecr.io/demo:latest'
 
-    - name: Restart Azure App Service
-      uses: azure/webapps-restart@v2
-      with:
-        app-name: 'trabalhocn'
-        slot-name: 'production'  # Se você estiver usando um slot específico, caso contrário, remova esta linha
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_7a8607a7a22243d5a56dbcf474cb4d65 }}  # Se necessário, substitua pelo seu próprio segredo
+    #- name: Restart Azure App Service
+      #run: az webapp restart --name trabalhocn --resource-group trabalhoCN
+      #env:
+      #  AZURE_WEBAPP_NAME: 'trabalhocn'
+      #  AZURE_RESOURCE_GROUP: 'trabalhoCN'
+      #if: always()
 
