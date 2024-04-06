@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Base64;
+import org.springframework.ui.Model;
 
 import com.azure.cosmos.*;
 import com.azure.storage.blob.*;
