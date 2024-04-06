@@ -102,9 +102,17 @@
 			</tr>
 		</thead>
 		<tbody>
-			
+			<tr th:each="livro : ${livros}">
+				<td th:text="${livro.nome}"></td>
+				<td th:text="${livro.autor}"></td>
+				<td th:text="${livro.data}"></td>
+				<td>
+        				<img th:src="'data:image/jpeg;base64,' + ${livro.imagem}" alt="Imagem do Livro"/>
+    				</td>
+				<td th:text="${livro.descricao}"></td>
+			</tr>
 		</tbody>
-	</table>table>
+	</table>
 </div>
 </body>
 </html>
