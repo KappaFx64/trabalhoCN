@@ -9,4 +9,6 @@ public interface RepositorioLivro extends CosmosRepository<Livro, String> {
 
   List<Livro> findAll();
 
+  void deleteByNome(String nome);
+
 }
