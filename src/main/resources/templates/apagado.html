@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sucesso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="date"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="file"] {
+            margin-top: 5px;
+        }
+        textarea {
+            height: 100px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .botao {
+            padding: 5px;
+            background: #007bff;
+            color: white;
+            width: 250px;
+            text-align: center;
+            border-radius: 3px;
+            margin: auto;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Sucesso ! :3</h2>
+    <p>Os dados foram apagados da base de dados com sucesso.</p>
+    <h1 class="botao"><a style="text-decoration: none;color:white;" th:href="@{/home}">Voltar</a></h1>
+</div>
+</body>
+</html>
