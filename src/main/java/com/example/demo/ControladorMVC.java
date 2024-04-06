@@ -20,7 +20,9 @@ public class ControladorMVC {
     RepositorioLivro repositorioLivro;
 
     @GetMapping("/home")
-    public String home() {
+    public String home(Model model) {
+        List<Livro> livros = repositorioLivro.findAll();
+        model.addAttribute("livros", livros);
         return "home";
     }
 
