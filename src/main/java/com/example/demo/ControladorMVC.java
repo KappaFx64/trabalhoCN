@@ -25,11 +25,11 @@ public class ControladorMVC {
     }
 
     @PostMapping("/processar")
-    public String processarFormulario(@RequestParam("autor") String autor, @RequestParam("data") String data, @RequestParam("foto") MultipartFile imagem, @RequestParam("descricao") String descricao) throws IOException {
+    public String processarFormulario(@RequestParam("nome") String nome, @RequestParam("autor") String autor, @RequestParam("data") String data, @RequestParam("foto") MultipartFile imagem, @RequestParam("descricao") String descricao) throws IOException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate data1 = LocalDate.parse(data, formatter);
         String fotoBase64 = Base64.getEncoder().encodeToString(imagem.getBytes());
-        Livro l = new Livro(autor, data1, fotoBase64, descricao);
+        Livro l = new Livro(nome, autor, data1, fotoBase64, descricao);
         repositorioLivro.save(l);
         return "redirect:/sucesso";
     }
