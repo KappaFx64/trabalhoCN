@@ -110,10 +110,12 @@
         				<img th:src="'data:image/jpeg;base64,' + ${livro.imagem}" width="200px" alt="Imagem do Livro"/>
     				</td>
 				<td style="border-bottom:1px solid black;text-align:center;max-width:200px;" th:text="${livro.descricao}"></td>
-				<form th:action="@{/remover}" method="post">
-            				<input type="hidden" name="nome" th:value="${livro.nome}" />
-            				<button type="submit" style="text-decoration:none;border:1px solid darkred; color:white; background-color:red; border-radius:5px;padding:5px 20px;font-size:20px">Remover</button>
-        			</form>
+				<td>
+					<form th:action="@{/remover}" method="post">
+            					<input type="hidden" name="nome" th:value="${livro.nome}" />
+            					<button type="submit" style="text-decoration:none;border:1px solid darkred; color:white; background-color:red; border-radius:5px;padding:5px 20px;font-size:20px">Remover</button>
+        				</form>
+				</td>
 			</tr>
 		</tbody>
 	</table>
