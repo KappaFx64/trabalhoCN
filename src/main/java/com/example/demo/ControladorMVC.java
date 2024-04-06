@@ -28,6 +28,12 @@ public class ControladorMVC {
         return "home";
     }
 
+    @PostMapping("/remover")
+    public String removerLivro(@RequestParam("nome") String nome) {
+        repositorioLivro.deleteByNome(nome);
+        return "redirect:/sucesso";
+    }
+
     @PostMapping("/processar")
     public String processarFormulario(@RequestParam("nome") String nome, @RequestParam("autor") String autor, @RequestParam("data") String data, @RequestParam("foto") MultipartFile imagem, @RequestParam("descricao") String descricao) throws IOException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
