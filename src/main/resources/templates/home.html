@@ -20,7 +20,7 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         .verlivros {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 20px auto;
             padding: 20px;
             background-color: #fff;
@@ -107,7 +107,7 @@
 				<td th:text="${livro.autor}"></td>
 				<td th:text="${livro.data}"></td>
 				<td>
-        				<img th:src="'data:image/jpeg;base64,' + ${livro.imagem}" alt="Imagem do Livro"/>
+        				<img th:src="'data:image/jpeg;base64,' + ${livro.imagem}" width="200px" alt="Imagem do Livro"/>
     				</td>
 				<td th:text="${livro.descricao}"></td>
 			</tr>
