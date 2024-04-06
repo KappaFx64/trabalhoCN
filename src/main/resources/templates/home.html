@@ -110,7 +110,7 @@
         				<img th:src="'data:image/jpeg;base64,' + ${livro.imagem}" width="200px" alt="Imagem do Livro"/>
     				</td>
 				<td style="border-bottom:1px solid black;text-align:center" th:text="${livro.descricao}"></td>
-				<td><a th:href="#" style="background-color:red;border:1px solid darkred;color:white;">Remover</a></td>
+				<td><a th:href="@{/remover}">Remover</a></td>
 			</tr>
 		</tbody>
 	</table>
