@@ -102,7 +102,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="livro : ${livros}">
+			<tr th:each="livro : ${livros}" style="border: 1px solid black;">
 				<td style="text-align:center" th:text="${livro.nome}"></td>
 				<td style="text-align:center" th:text="${livro.autor}"></td>
 				<td style="text-align:center" th:text="${livro.data}"></td>
@@ -110,7 +110,6 @@
         				<img th:src="'data:image/jpeg;base64,' + ${livro.imagem}" width="200px" alt="Imagem do Livro"/>
     				</td>
 				<td style="text-align:center" th:text="${livro.descricao}"></td>
-				<hr>
 			</tr>
 		</tbody>
 	</table>
