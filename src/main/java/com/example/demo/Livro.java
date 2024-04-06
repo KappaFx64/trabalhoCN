@@ -22,12 +22,14 @@ public class Livro {
     @PartitionKey
     @GeneratedValue
     private String id;
+    private String nome;
     private String autor;
     private LocalDate data;
     private String imagem;
     private String descricao;
 
-    public Livro(String autor, LocalDate data, String imagem, String descricao) {
+    public Livro(String nome, String autor, LocalDate data, String imagem, String descricao) {
+        this.nome = nome;
         this.autor = autor;
         this.data = data;
         this.imagem = imagem;
