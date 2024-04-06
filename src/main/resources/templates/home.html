@@ -109,8 +109,8 @@
 				<td style="border-bottom:1px solid black;text-align:center">
         				<img th:src="'data:image/jpeg;base64,' + ${livro.imagem}" width="200px" alt="Imagem do Livro"/>
     				</td>
-				<td style="border-bottom:1px solid black;text-align:center" th:text="${livro.descricao}"></td>
-				<td><a th:href="@{/remover}" style="border:1px solid dark red; color:white; background-color:red;">Remover</a></td>
+				<td style="border-bottom:1px solid black;text-align:center;max-width:200px;" th:text="${livro.descricao}"></td>
+				<td><a th:href="@{/remover}" style="text-decoration:none;border:1px solid darkred; color:white; background-color:red; border-radius:5px;padding:5px 20px;font-size:20px">Remover</a></td>
 			</tr>
 		</tbody>
 	</table>
